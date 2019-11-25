@@ -7,6 +7,7 @@ const blueShadow = "#1A588B";
 
 const orange = "#D6A75D";
 const orangeShadow = "#896120";
+const brightOrange = "#F7B354";
 
 const neutral = "#FFFCEF";
 
@@ -17,7 +18,18 @@ const colors = {
     primaryShadow: blueShadow,
     neutral,
     complementary: orange,
+    trueComplementary: brightOrange,
     complementaryShadow: orangeShadow,
+}
+const colors2 = {
+    primary: "#333333",
+    primaryDarkTint: "#131313",
+    primaryTint: "#888888",
+    primaryShadow: "#000000",
+    neutral: "#FFFFFF",
+    complementary: "#222222",
+    trueComplementary: "#CCCCCC",
+    complementaryShadow: "#999999",
 }
 
 const mediaQueries = {

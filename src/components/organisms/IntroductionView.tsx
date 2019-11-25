@@ -5,34 +5,44 @@ import Body from "../../theme/Body";
 import IntroGraphic from "../svg/IntroGraphic";
 import Button from "../../theme/Button";
 import Div from "../../theme/Div";
+import useCustomRef from "../../hooks/useCustomRef";
+import playScrollAnimation from "../../hooks/playScrollAnimation";
+import ThreePillarsView from "../molecules/ThreePillarsView";
 
-const IntroductionView = () => (
-    <Container>
-        <Header>
-            How does the <Highlight>design</Highlight> of a website affect its  <Highlight>accessibility</Highlight> and <Highlight>diversity</Highlight> for all audiences worldwide?
-        </Header>
-        <Caption>
-            And how are aesthetics balanced with user experience design 
-            while keeping global audiences in mind?
-        </Caption>
-        <Grid>
-            <RectWrapper>
-                <Body inline={`line-height: 2`}>
-                    Only through an effective balance of aesthetics and user experience are websites able to become accessible and diverse.
-                </Body>
-            </RectWrapper>
-            <ContinueButton>Continue</ContinueButton>
-            <Graphic />
-        </Grid>
-        <FlexColumn>
-            <Caption2>Designing something that looks beautiful doesn’t make a website great…</Caption2>
-            <Header>But it helps.</Header>
-        </FlexColumn>
-        
-        <div style={{paddingBottom: "50vh"}}></div>
-    </Container>
-)
+const IntroductionView = () => {
+    const part2Ref = useCustomRef<HTMLDivElement>(null);
+    const part3Ref = useCustomRef<HTMLButtonElement>(null);
+    return (
+        <Container>
+            <Header>
+                How does the <Highlight>design</Highlight> of a website affect its  <Highlight>accessibility</Highlight> and <Highlight>diversity</Highlight> for all audiences worldwide?
+            </Header>
+            <Caption>
+                And how are aesthetics balanced with user experience design 
+                while keeping global audiences in mind?
+            </Caption>
+            <Grid>
+                <RectWrapper>
+                    <Body inline={`line-height: 2`}>
+                        Only through an effective balance of aesthetics and user experience are websites able to become accessible and diverse.
+                    </Body>
+                </RectWrapper>
+                <ContinueButton onClick={() => playScrollAnimation(part2Ref.pos().y - 100)}>Continue</ContinueButton>
+                <Graphic />
+            </Grid>
 
+            <FlexColumn>
+                <Caption2 ref={part2Ref.ref}>Designing something that looks beautiful doesn’t make a website great…</Caption2>
+                <FlexRow>
+                    <Button ref={part3Ref.ref} onClick={_ => playScrollAnimation(part3Ref.pos().y + 100)}>Next</Button>
+                    <Header>But it helps.</Header>
+                </FlexRow>
+            </FlexColumn>
+
+            <ThreePillarsView />
+        </Container>
+    );
+}
 export default IntroductionView;
 
 const Container = styled.div`
@@ -99,7 +109,12 @@ const ContinueButton = styled(Button)`
 const FlexColumn = styled.div`
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: stretch;
+`;
+const FlexRow = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 `;
 const Caption2 = styled(Header)`
     font-weight: 400;

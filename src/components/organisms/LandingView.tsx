@@ -3,16 +3,19 @@ import styled from "../../theme/styled";
 import Title from "../../theme/Title";
 import Button from "../../theme/Button";
 import LandingGraphic from "../svg/LandingGraphic";
+import playScrollAnimation from "../../hooks/playScrollAnimation";
 
-const LandingView = () => (
-    <Container>
-        <LandingViewGraphic />
-        <ActionView>
-            <LandingTitle>The Interrelationship Between UI and UX</LandingTitle>
-            <Button>Get Started</Button>
-        </ActionView>
-    </Container>
-)
+const LandingView = () => {
+    return (
+       <Container>
+            <LandingViewGraphic />
+            <ActionView>
+                <LandingTitle>The Interrelationship Between UI and UX</LandingTitle>
+                <Button onClick={() => playScrollAnimation(window.innerHeight)}>Explore</Button>
+            </ActionView>
+        </Container>
+    )
+}
 
 export default LandingView;
 

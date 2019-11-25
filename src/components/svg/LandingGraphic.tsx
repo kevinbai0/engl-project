@@ -5,9 +5,9 @@ const LandingGraphic = ({className}: { className?: string }) => (
   <svg xmlns="http://www.w3.org/2000/svg" xlinkHref="http://www.w3.org/1999/xlink" width="1280" height="800.035" viewBox="0 0 1280 800.035" className={className}>
   <defs>
     <linearGradient id="linear-gradient" x1="0.5" y1="1" x2="0.5" gradientUnits="objectBoundingBox">
-      <stop offset="0" stop-color="gray" stop-opacity="0.251"/>
-      <stop offset="0.54" stop-color="gray" stop-opacity="0.122"/>
-      <stop offset="1" stop-color="gray" stop-opacity="0.102"/>
+      <stop offset="0" stopColor="gray" stopOpacity="0.251"/>
+      <stop offset="0.54" stopColor="gray" stopOpacity="0.122"/>
+      <stop offset="1" stopColor="gray" stopOpacity="0.102"/>
     </linearGradient>
   </defs>
   <g id="Group_2" data-name="Group 2" transform="translate(481.211 77.12)">
@@ -19,7 +19,7 @@ const LandingGraphic = ({className}: { className?: string }) => (
     <path id="Path_29" data-name="Path 29" d="M636.468,764.193v4.837H493.38v-3.939a46.934,46.934,0,0,0,11.032-5.871h123.3A47.124,47.124,0,0,0,636.468,764.193Z" transform="translate(-150.484 -224.341)" opacity="0.1"/>
     <rect id="Rectangle_38" data-name="Rectangle 38" width="237.701" height="14.337" rx="7.169" transform="translate(295.605 536.388)" fill="#fffcef"/>
     <path id="Path_102" data-name="Path 102" d="M-4,0V800H1276S890.988,811.475,725.881,419.73,244.459,0,244.459,0Z" transform="translate(-477.211 -77.12)" fill="#5897f7"/>
-    <path id="Path_3" data-name="Path 3" d="M300.038,545.333s-34.878-50.325-28.954-97.819a92.771,92.771,0,0,0-11.168-57.607A155.983,155.983,0,0,0,243.51,366.56" transform="translate(-89.167 -127.984)" fill="none" stroke="#535461" stroke-miterlimit="10" stroke-width="2"/>
+    <path id="Path_3" data-name="Path 3" d="M300.038,545.333s-34.878-50.325-28.954-97.819a92.771,92.771,0,0,0-11.168-57.607A155.983,155.983,0,0,0,243.51,366.56" transform="translate(-89.167 -127.984)" fill="none" stroke="#535461" strokeMiterlimit="10" strokeWidth="2"/>
     <path id="Path_4" data-name="Path 4" d="M239.955,323.961c2.264,6.829-3.554,30.743-3.554,30.743s-18.933-15.718-21.2-22.555a13.035,13.035,0,0,1,24.751-8.187Z" transform="translate(-82.059 -115.336)" fill="#d6a75d"/>
     <path id="Path_5" data-name="Path 5" d="M283.625,362.752c-1.811,6.965-19.688,23.876-19.688,23.876s-7.35-23.483-5.531-30.448a13.031,13.031,0,1,1,25.22,6.573Z" transform="translate(-92.752 -123.045)" fill="#d6a75d"/>
     <path id="Path_6" data-name="Path 6" d="M309.662,446.939c-5.086,5.1-29.052,10.67-29.052,10.67s5.516-23.981,10.565-29.075a13.033,13.033,0,0,1,18.458,18.4Z" transform="translate(-98.271 -142.252)" fill="#d6a75d"/>
@@ -34,7 +34,7 @@ const LandingGraphic = ({className}: { className?: string }) => (
     <path id="Path_15" data-name="Path 15" d="M229.734,404.86c6.475,3.139,30.939.513,30.939.513s-13.1-20.827-19.62-23.974a13.032,13.032,0,0,0-11.319,23.461Z" transform="translate(-84.076 -131.354)" opacity="0.25"/>
     <path id="Path_16" data-name="Path 16" d="M236.3,485.948c7.123,1.056,29.686-8.769,29.686-8.769s-18.737-15.96-25.845-17.016a13.034,13.034,0,0,0-3.833,25.785Z" transform="translate(-84.67 -150.919)" opacity="0.25"/>
     <path id="Path_17" data-name="Path 17" d="M255.563,564.3c6.844,2.264,30.743-3.622,30.743-3.622s-15.771-18.865-22.638-21.129a13.034,13.034,0,1,0-8.135,24.766Z" transform="translate(-89.916 -170.274)" opacity="0.25"/>
-    <path id="Path_18" data-name="Path 18" d="M277.795,555.083s-52.279-31.875-66.118-77.724a92.817,92.817,0,0,0-33.55-48.136A155.968,155.968,0,0,0,153.67,414.53" transform="translate(-67.121 -139.756)" fill="none" stroke="#535461" stroke-miterlimit="10" stroke-width="2"/>
+    <path id="Path_18" data-name="Path 18" d="M277.795,555.083s-52.279-31.875-66.118-77.724a92.817,92.817,0,0,0-33.55-48.136A155.968,155.968,0,0,0,153.67,414.53" transform="translate(-67.121 -139.756)" fill="none" stroke="#535461" strokeMiterlimit="10" strokeWidth="2"/>
     <path id="Path_19" data-name="Path 19" d="M134.513,374.98c4.837,5.327,9.206,29.543,9.206,29.543s-23.672-6.7-28.509-12.028a13.032,13.032,0,1,1,19.3-17.514Z" transform="translate(-56.854 -129.001)" fill="#d6a75d"/>
     <path id="Path_20" data-name="Path 20" d="M190.118,392.756c1.162,7.108-8.3,29.814-8.3,29.814s-16.254-18.5-17.424-25.6a13.033,13.033,0,1,1,25.724-4.211Z" transform="translate(-69.71 -131.73)" fill="#d6a75d"/>
     <path id="Path_21" data-name="Path 21" d="M250.124,458.24c-2.588,6.724-22.238,21.529-22.238,21.529s-4.678-24.147-2.1-30.879a13.035,13.035,0,0,1,24.336,9.35Z" transform="translate(-84.628 -146.135)" fill="#d6a75d"/>
