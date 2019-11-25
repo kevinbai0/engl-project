@@ -4,7 +4,7 @@ import Header from "../../theme/Header";
 import Body from "../../theme/Body";
 import PsychologyLandingGraphic from "../svg/PsychologyLandingGraphic";
 import TodoList from "../molecules/TodoList";
-import UglyTodoList from "../molecules/UglyTodoLIst";
+import UglyTodoList from "../molecules/UglyTodoList";
 import Modal from "../molecules/Modal";
 import GulfGraphic from "../svg/GulfGraphic";
 import Clickable from "../molecules/Clickable";
