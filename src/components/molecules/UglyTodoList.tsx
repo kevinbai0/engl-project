@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import styled from "../../theme/styled";
-import Body from "../../theme/Body";
 
 const UglyTodoList = ({className}: {className?: string}) => {
     const [ items, setItems ] = useState(new Array<string>());
