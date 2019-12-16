@@ -1,6 +1,6 @@
 import { useRef } from "react";
 
-function useCustomRef<T extends HTMLElement>(element: T | null) {
+function useCustomRef<T extends HTMLElement>(element?: T) {
     const ref = useRef<T>(element);
 
     function pos() {

@@ -9,11 +9,15 @@ import useCustomRef from "../../hooks/useCustomRef";
 import playScrollAnimation from "../../hooks/playScrollAnimation";
 import ThreePillarsView from "../molecules/ThreePillarsView";
 
-const IntroductionView = () => {
+interface ISectionProps {
+    navRef: React.RefObject<HTMLDivElement>
+}
+
+const IntroductionView: React.FC<ISectionProps> = ({navRef}) => {
     const part2Ref = useCustomRef<HTMLDivElement>(null);
     const part3Ref = useCustomRef<HTMLButtonElement>(null);
     return (
-        <Container>
+        <Container ref={navRef}>
             <Header>
                 How does the <Highlight>design</Highlight> of a website affect its  <Highlight>accessibility</Highlight> and <Highlight>diversity</Highlight> for all audiences worldwide?
             </Header>

@@ -9,10 +9,14 @@ import Modal from "../molecules/Modal";
 import GulfGraphic from "../svg/GulfGraphic";
 import Clickable from "../molecules/Clickable";
 
-const PsychologyView = () => {
+interface ISectionProps {
+    navRef: React.RefObject<HTMLDivElement>
+}
+
+const PsychologyView: React.FC<ISectionProps> = ({navRef}) => {
     const [ modalState, setModalState ] = useState({title: "", isVisible: false} as {title: string, isVisible: boolean, body?: any});
     return (
-        <Container>
+        <Container ref={navRef}>
             <Modal title={modalState.title} children={modalState.body} isVisible={modalState.isVisible} onHide={() => setModalState({title: "", isVisible: false})}/>
             <PsychologyLanding>
                 <Header>Let’s take a look at Psychology</Header>

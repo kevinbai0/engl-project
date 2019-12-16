@@ -6,12 +6,16 @@ import MacroUXGraphic from "../svg/MacroUXGraphic";
 import Modal from "../molecules/Modal";
 import Clickable from "../molecules/Clickable";
 
-const MacroUXView = () => {
+interface ISectionProps {
+    navRef: React.RefObject<HTMLDivElement>
+}
+
+const MacroUXView: React.FC<ISectionProps> = ({navRef}) => {
     const [ modalState, setModalState ] = useState({title: "", isVisible: false} as {title: string, isVisible: boolean, body?: any});
     return (
         <>
             <Triangle/>
-            <Container>
+            <Container ref={navRef}>
                 <Modal isVisible={modalState.isVisible} title={modalState.title} onHide={() => setModalState({title: "", isVisible: false})}>{modalState.body}</Modal>
                 <Header>
                     <Clickable onClick={_ => setModalState({title: "Goal Oriented Design", body: <GoalOrientedBody />, isVisible: true})}>Goal Oriented Design</Clickable>

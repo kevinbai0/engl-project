@@ -7,13 +7,17 @@ import Clickable from "../molecules/Clickable";
 import TodoList from "../molecules/TodoList";
 import TodoList2 from "../molecules/TodoList2";
 
-const MicroUXView = () => {
+interface ISectionProps {
+    navRef: React.RefObject<HTMLDivElement>
+}
+
+const MicroUXView: React.FC<ISectionProps> = ({navRef}) => {
     const [ modalState, setModalState ] = useState({title: "", isVisible: false} as {title: string, isVisible: boolean, body?: any});
     const showModal = (title: string, body: any) => setModalState({title, body, isVisible: true});
     return (
         <Container>
             <Modal isVisible={modalState.isVisible} title={modalState.title} onHide={() => setModalState({title: "", isVisible: false})}>{modalState.body}</Modal>
-            <Header>
+            <Header ref={navRef}>
                 <Clickable onClick={_ => setModalState({title: "Micro UX", body: <MicroUXBody />, isVisible: true})}>Micro UX</Clickable>
             </Header>
 
