@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "../../theme/styled";
 import Header from "../../theme/Header";
 import Body from "../../theme/Body";
@@ -8,18 +8,28 @@ import Div from "../../theme/Div";
 import useCustomRef from "../../hooks/useCustomRef";
 import playScrollAnimation from "../../hooks/playScrollAnimation";
 import ThreePillarsView from "../molecules/ThreePillarsView";
+import Clickable from "../molecules/Clickable";
+import Modal from "../molecules/Modal";
 
 interface ISectionProps {
     navRef: React.RefObject<HTMLDivElement>
 }
 
 const IntroductionView: React.FC<ISectionProps> = ({navRef}) => {
+    const [ modalState, setModalState ] = useState({title: "", isVisible: false} as {title: string, isVisible: boolean, body?: any});
+    const showModal = (title: string, body: any) => setModalState({title, body, isVisible: true});
+  
     const part2Ref = useCustomRef<HTMLDivElement>(null);
     const part3Ref = useCustomRef<HTMLButtonElement>(null);
     return (
         <Container ref={navRef}>
+            <Modal isVisible={modalState.isVisible} title={modalState.title} onHide={() => setModalState({title: "", isVisible: false})}>{modalState.body}</Modal>
             <Header>
-                How does the <Highlight>design</Highlight> of a website affect its  <Highlight>accessibility</Highlight> and <Highlight>diversity</Highlight> for all audiences worldwide?
+                How does the 
+                <Clickable onClick={() => showModal("Design", <DesignBody />)}> design </Clickable> 
+                of a website affect its  
+                <Clickable onClick={() => showModal("Accessibilty", <AccessibilityBody />)}> accessibility </Clickable> and 
+                <Clickable onClick={() => showModal("Usability", <UsabilityBody />)}> usability </Clickable> for global audiences?
             </Header>
             <Caption>
                 And how are aesthetics balanced with user experience design 
@@ -28,7 +38,7 @@ const IntroductionView: React.FC<ISectionProps> = ({navRef}) => {
             <Grid>
                 <RectWrapper>
                     <Body inline={`line-height: 2`}>
-                        Only through an effective balance of aesthetics and user experience are websites able to become accessible and diverse.
+                    Only through an effective balance of aesthetics and user experience are websites able to be accessible and usable for global audiences.
                     </Body>
                 </RectWrapper>
                 <ContinueButton onClick={() => playScrollAnimation(part2Ref.pos().y - 100)}>Continue</ContinueButton>
@@ -131,3 +141,15 @@ const Caption2 = styled(Header)`
         margin: 250px 0 65vh;
     }
 `;
+
+const DesignBody = () => <Body>
+    Just "Design" refers to UI and UX design
+</Body>
+
+const AccessibilityBody = () => <Body>
+    Refers to how easy it is for people with disabilities to navigate and use a website
+</Body>
+
+const UsabilityBody = () => <Body>
+    Refers to how easy it is for the average user to navigate and use a website
+</Body>

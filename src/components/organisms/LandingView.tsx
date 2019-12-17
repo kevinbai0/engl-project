@@ -1,16 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "../../theme/styled";
 import Title from "../../theme/Title";
 import Button from "../../theme/Button";
 import LandingGraphic from "../svg/LandingGraphic";
 import playScrollAnimation from "../../hooks/playScrollAnimation";
+import Clickable from "../molecules/Clickable";
+import Modal from "../molecules/Modal";
+import Body from "../../theme/Body";
 
 const LandingView = () => {
+  const [ modalState, setModalState ] = useState({title: "", isVisible: false} as {title: string, isVisible: boolean, body?: any});
+  const showModal = (title: string, body: any) => setModalState({title, body, isVisible: true});
+
     return (
        <Container>
-            <LandingViewGraphic />
+          <Modal isVisible={modalState.isVisible} title={modalState.title} onHide={() => setModalState({title: "", isVisible: false})}>{modalState.body}</Modal>
+          <LandingViewGraphic />
             <ActionView>
-                <LandingTitle>The Interrelationship Between UI and UX</LandingTitle>
+                <LandingTitle>The Interrelationship Between 
+                  <Clickable onClick={() => showModal("User Interface (UI)", <UIBody />)}> UI</Clickable> and 
+                  <Clickable onClick={() => showModal("User Experience (UX)", <UXBody />)}> UX</Clickable></LandingTitle>
                 <Button onClick={() => playScrollAnimation(window.innerHeight)}>Explore</Button>
             </ActionView>
         </Container>
@@ -52,3 +61,11 @@ const ActionView = styled.div`
     bottom: ${props => props.theme.space.desktopMargin};
   }
 `;
+
+const UIBody = () => <Body>
+  User Interfaces: refers to the visual and aesthetic makeup of a website
+</Body>
+
+const UXBody = () => <Body>
+  User Experience: refers to the design of the overall experience of a website (not in terms of aesthetics) 
+</Body>

@@ -28,7 +28,7 @@ const IndexPage = () => {
       if (pageYOffset <= 50 && navBackgroundVisible) setNavBackgroundVisible(false);
       if (animating) return;
       for (let i = navRefs.length - 2; i >= 1; --i) {
-        if (pageYOffset > navRefs[i].pos().y - (i === 2 ? 250 : 100)) {
+        if (pageYOffset > navRefs[i].pos().y - 100) {
           setSelected(i);
           return;
         }
@@ -45,7 +45,7 @@ const IndexPage = () => {
 
   const userSetSelected = (i: number) => {
     const y = navRefs[i].pos().y;
-    const newY = selected === 2 ? y - 250 : y - 100;
+    const newY = y - 100;
     let anim = playScrollAnimation(newY);
     animating = true;
     anim.finished.then(_ => {

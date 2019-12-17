@@ -17,7 +17,7 @@ const ThreePillarsView = () => {
 
             <GetStartedButton 
                 ref={buttonRef.ref}
-                onClick={_ => playScrollAnimation(buttonRef.pos().y + 200)}
+                onClick={_ => playScrollAnimation(buttonRef.pos().y + 350)}
             >Get Started</GetStartedButton>
         </Container>
     );

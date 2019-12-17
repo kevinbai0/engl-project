@@ -14,8 +14,8 @@ const MacroUXView: React.FC<ISectionProps> = ({navRef}) => {
     const [ modalState, setModalState ] = useState({title: "", isVisible: false} as {title: string, isVisible: boolean, body?: any});
     return (
         <>
-            <Triangle/>
-            <Container ref={navRef}>
+            <Triangle ref={navRef}/>
+            <Container>
                 <Modal isVisible={modalState.isVisible} title={modalState.title} onHide={() => setModalState({title: "", isVisible: false})}>{modalState.body}</Modal>
                 <Header>
                     <Clickable onClick={_ => setModalState({title: "Goal Oriented Design", body: <GoalOrientedBody />, isVisible: true})}>Goal Oriented Design</Clickable>
@@ -27,6 +27,14 @@ const MacroUXView: React.FC<ISectionProps> = ({navRef}) => {
                 </Grid>
                 <Body inline="max-width: 1080px;">
                     A company website for the public might have cool graphics and art to attract customers. However, something like Google needs to be minimal and simple so people can easily find what they’re looking for.
+                </Body>
+                <Header inline="margin: 100px 0 0;">Let's look back to the todo lists</Header>
+                <Body>What’s the purpose of a todo list? What is the user actually trying to accomplish? </Body>
+                <Body inline="margin: 40px 0 0;">1) People use a todo list to keep track of tasks that are happening throughout the day</Body>
+                <Body inline="margin: 0 0 40px;">2) They use it to be more productive, so that they can get more done in a day</Body>
+                
+                <Body>
+                    This is what a user is trying to accomplish. After creating this, then the features can be ideated. Without this analysis, however, useless complexity might be added which would make the todo list more inaccessible to some people, and make it harder to use for the general audience.
                 </Body>
             </Container>
         </>
