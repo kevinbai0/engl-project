@@ -4,7 +4,7 @@ import Body from "../../theme/Body";
 import Clickable from "./Clickable";
 import Button from "../../theme/Button";
 
-const TodoList3 = ({className}: {className?: string}) => {
+const TodoList4 = ({className}: {className?: string}) => {
     const [ items, setItems ] = useState(new Array<string>());
     const [ inputText, setInputText ] = useState("");
 
@@ -72,8 +72,10 @@ const TodoList3 = ({className}: {className?: string}) => {
                                     key={i} 
                                     value={inputsText[i]} 
                                     onChange={e => updateInputs(e, i)}
+                                    placeholder="Backspace to delete"
+                                    onKeyDown={e => checkBackspace(e, i)}
                                 />
-                                <HighlightedText onClick={() => setInputsText(inputsText.filter((it, ind) => i !== ind))}>Delete</HighlightedText>
+                                <Button inline={"padding: 1px 15px; font-size: 16px"} onClick={() => setInputsText(inputsText.filter((it, ind) => i !== ind))}>Delete</Button>
                             </Item>
                         )
                             :
@@ -86,7 +88,7 @@ const TodoList3 = ({className}: {className?: string}) => {
 
 }
 
-export default TodoList3;
+export default TodoList4;
 
 const Container = styled.div`
     background-color: ${p => p.theme.colors.primaryDarkTint};
@@ -181,6 +183,7 @@ const AddButton = styled.button<{disabled: boolean}>`
 const Item = styled.div`
     display: flex;
     align-items: center;
+    margin: 1px 0;
 `;
 
 const CancelButton = styled(Button)<{editing: boolean}>`

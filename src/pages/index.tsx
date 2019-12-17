@@ -11,6 +11,7 @@ import MicroUXView from "../components/organisms/MicroUXView";
 import NavBar from "../components/molecules/NavBar";
 import playScrollAnimation from "../hooks/playScrollAnimation";
 import useCustomRef from "../hooks/useCustomRef";
+import ConclusionView from "../components/organisms/ConclusionView";
 
 // really bad code lol, but need a quick hack
 let animating = false;
@@ -27,7 +28,11 @@ const IndexPage = () => {
       if (pageYOffset > 50 && !navBackgroundVisible) setNavBackgroundVisible(true);
       if (pageYOffset <= 50 && navBackgroundVisible) setNavBackgroundVisible(false);
       if (animating) return;
-      for (let i = navRefs.length - 2; i >= 1; --i) {
+      if (pageYOffset >= navRefs[4].pos().y - window.innerHeight) {
+        setSelected(4);
+        return;
+      }
+      for (let i = navRefs.length - 1; i >= 1; --i) {
         if (pageYOffset > navRefs[i].pos().y - 100) {
           setSelected(i);
           return;
@@ -37,6 +42,7 @@ const IndexPage = () => {
         setSelected(0);
         return;
       }
+      
     }
     window.addEventListener("scroll", listener);
     return () => removeEventListener("scroll", listener);
@@ -55,7 +61,7 @@ const IndexPage = () => {
   }
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO title="UI & UX" />
       <NavBar 
         elements={navTitles}
         currentSelected={selected}
@@ -68,6 +74,7 @@ const IndexPage = () => {
         <PsychologyView navRef={navRefs[1].ref}/>
         <MacroUXView navRef={navRefs[2].ref}/>
         <MicroUXView navRef={navRefs[3].ref}/>
+        <ConclusionView navRef={navRefs[4].ref}/>
       </Background>
     </Layout>
   )

@@ -7,6 +7,7 @@ import Clickable from "../molecules/Clickable";
 import TodoList from "../molecules/TodoList";
 import TodoList2 from "../molecules/TodoList2";
 import TodoList3 from "../molecules/TodoList3";
+import TodoList4 from "../molecules/TodoList4";
 import Button from "../../theme/Button";
 
 interface ISectionProps {
@@ -47,6 +48,10 @@ const MicroUXView: React.FC<ISectionProps> = ({navRef}) => {
             <Body inline="margin: 40px 0 20px;">Let’s solve this problem.</Body>
 
             <TodoList3 />
+
+            <Body inline="margin: 50px 0 20px">Now we've got some pretty good UI and UX. Finally, adding some final touches and we've got our final Todo List</Body>
+
+            <TodoList4 />
 
             <div style={{height: "20vh"}}></div>
         </Container>
