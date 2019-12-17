@@ -48,6 +48,8 @@ const Container = styled.div`
     width: 90%;
     padding: 30px;
     z-index: 11;
+    max-height: 60vh;
+    overflow: scroll;
 
     display: flex;
     flex-direction: column;

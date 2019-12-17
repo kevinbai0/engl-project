@@ -44,7 +44,7 @@ const MicroUXView: React.FC<ISectionProps> = ({navRef}) => {
             <TodoList2 />
 
             <Body inline="margin-top: 20px;">Our todo list now has all the affordances we want it to have. Visually, on first glance, it seems like all the affordances are easily discoverable.</Body>
-            <Body inline="margin-top: 40px;">But, there are no further <Clickable onClick={() => showModal("More on signifiers", <MoreSignifiersBody />)}>signifiers.</Clickable></Body>
+            <Body inline="margin-top: 40px;">But, there are no further <Clickable onClick={() => showModal("More on signifiers and feedback", <MoreSignifiersBody />)}>signifiers or feedback.</Clickable></Body>
             <Body inline="margin: 40px 0 20px;">Let’s solve this problem.</Body>
 
             <TodoList3 />
@@ -95,5 +95,52 @@ const Problem1Body = () => <>
 
 
 const MoreSignifiersBody = () => <div>
-
+    <Body>Signifiers and Feeback are just as important as affordances. In our todo currently, there aren't any interactive signifiers or feedback that help us know where to click.</Body>
+    <Body inline="margin: 20px 0 5px;">For example, look at this input: </Body>
+    <Input placeholder="Input here"/>
+    <Body inline="margin: 20px 0 5px;">Nothing happens when you hover over it, or when you click it. We need to improve that this. Look at this input:</Body>
+    <BetterInput placeholder="Input here" />
+    <Body inline="margin: 20px 0 0;">Even though the two inputs look the same, this input does so much more.</Body>
+    <Body inline="margin: 20px 0;">This is the difference between interactive signifiers/feedback vs nothing</Body>
 </div>
+
+const Input = styled.input`
+    flex: 1;
+    color: ${props => props.theme.colors.neutral};
+    background-color: ${props => props.theme.colors.primary};
+    border: 1px solid ${props => props.theme.colors.primary};
+    border-radius: ${props => props.theme.borderRadius.default};
+    padding: 6px 9px;
+    margin: 0 20px 0 0;
+    &:focus {
+        outline: none;
+    }
+    font-size: ${props => props.theme.fontSizes.bodyMobile};
+    ${props => props.theme.mediaQueries.tablet} {
+        font-size: ${props => props.theme.fontSizes.body};
+    }
+`;
+
+
+const BetterInput = styled.input`
+    flex: 1;
+    color: ${props => props.theme.colors.neutral};
+    background-color: ${props => props.theme.colors.primary};
+    border: 1px solid ${props => props.theme.colors.primary};
+    border-radius: ${props => props.theme.borderRadius.default};
+    padding: 6px 9px;
+    margin: 0 20px 0 0;
+    transition: all 0.2s ease;
+    &:hover {
+        border: 1px solid ${props => props.theme.colors.primaryShadow};
+        background-color: #236BD9;
+    }
+    &:focus {
+        outline: none;
+        border: 1px solid ${props => props.theme.colors.complementary};
+    }
+    font-size: ${props => props.theme.fontSizes.bodyMobile};
+    ${props => props.theme.mediaQueries.tablet} {
+        font-size: ${props => props.theme.fontSizes.body};
+    }
+`;
